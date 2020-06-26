@@ -25,3 +25,4 @@ void Soldado::setVida(int v){
 void Soldado::setFuerza(int f){
 	p_fuerza=f;
 }
+

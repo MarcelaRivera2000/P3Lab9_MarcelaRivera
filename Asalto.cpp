@@ -21,10 +21,22 @@ void Asalto::setExtra(int v){
 	fuerza_extra=v;
 }
 
-int Asalto::asalto(){
+int Asalto::asalto(Soldado* soldado){
+	int ataque;
+	if(dynamic_cast<Asalto*>(soldado)){
+		ataque=p_fuerza*10;
+	}else{
+		ataque=p_fuerza*(10+(velocidad*2));
+	}
 	
+	return ataque;
 }
 
-int Asalto::soporte(){
-	
+int Asalto::soporte(Soldado* soldado,int ataque){
+	if(dynamic_cast<Asalto*>(soldado)){
+		p_vida=p_vida-ataque;
+	}else{
+		p_vida=p_vida-(ataque/fuerza_extra);
+	}
+	return p_vida;
 }

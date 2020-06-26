@@ -11,6 +11,7 @@ using std::endl;
 using std::cout;
 
 void menu();
+void Simulacion();
 
 vector<Soldado*> Angeles;
 vector<Soldado*> Demonios;
@@ -23,7 +24,8 @@ int main(int argc, char** argv) {
 }
 
 void menu(){
-	cout<<"-------------- MENU --------------"<<endl<<"1. Crear soldado"<<endl<<"2. Eliminar soldados" <<endl<<"3. Listar soldados"<<endl<<"4. Guardar soldados"<<endl<<"5. Cargar soldados"<<endl <<"6. Simulación "<<endl<<"7. Salir"<<endl<<":";
+	cout<<"-------------- MENU --------------"<<endl<<"1. Crear soldado"<<endl<<"2. Eliminar soldados" <<endl<<"3. Listar soldados"<<endl
+	<<"4. Guardar soldados"<<endl<<"5. Cargar soldados"<<endl <<"6. Simulación "<<endl<<"7. Salir"<<endl<<":";
 	int op;
 	cin>>op;
 	switch(op){
@@ -137,7 +139,7 @@ void menu(){
 			break;
 		}
 		case 6:{
-			
+			Simulacion();
 			break;
 		}
 		case 7:{
@@ -147,3 +149,33 @@ void menu(){
 	}
 	
 }
+
+void Simulacion(){
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

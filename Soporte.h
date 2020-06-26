@@ -1,6 +1,9 @@
 #ifndef SOPORTE_H
 #define SOPORTE_H
 #include "Soldado.h"
+#include "Asalto.h"
+
+class Binarios;
 
 class Soporte : public Soldado{
 	public:
@@ -10,12 +13,14 @@ class Soporte : public Soldado{
 		int getCamuflaje();
 		void setCamuflaje(int);
 		
-		int asalto();
-		int soporte();
+		int asalto(Soldado*);
+		int soporte(Soldado*,int);
 		
 	protected:
 	int blindaje;
 	int camuflaje;
+	
+	friend class Binarios;
 };
 
 #endif

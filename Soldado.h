@@ -4,6 +4,8 @@
 
 using namespace std; 
 
+class Binarios;
+
 class Soldado {
 	public:
 		Soldado(string,int,int);
@@ -16,8 +18,11 @@ class Soldado {
 	protected:
 		string nombre;
 		int p_vida,p_fuerza;
-		virtual int asalto()=0;
-		virtual int soporte()=0;
+		
+		virtual int asalto(Soldado*)=0;
+		virtual int soporte(Soldado*,int)=0;
+		
+		friend class Binarios;
 };
 
 

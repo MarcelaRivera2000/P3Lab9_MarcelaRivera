@@ -22,11 +22,23 @@ void Soporte::setCamuflaje(int v){
 	camuflaje=v;
 }
 
-int Soporte::asalto(){
+int Soporte::asalto(Soldado* soldado){
+	int ataque;
+	if(dynamic_cast<Asalto*>(soldado)){
+		ataque=p_fuerza*(15+camuflaje);
+	}else{
+		ataque=p_fuerza*10;
+	}
 	
+	return ataque;
 }
 
-int Soporte::soporte(){
-	
+int Soporte::soporte(Soldado* soldado,int ataque){
+	if(dynamic_cast<Asalto*>(soldado)){
+		p_vida=p_vida-(ataque/(blindaje*2));
+	}else{
+		p_vida=p_vida-ataque;
+	}
+	return p_vida;
 }
 
