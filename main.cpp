@@ -4,6 +4,7 @@
 #include "Soldado.h"
 #include "Asalto.h"
 #include "Soporte.h"
+#include "Binarios.h"
 
 using namespace std; 
 using std::cin;
@@ -15,6 +16,8 @@ void Simulacion();
 
 vector<Soldado*> Angeles;
 vector<Soldado*> Demonios;
+Binarios AA=Binarios("Angeles.bin");
+Binarios DD=Binarios("Demonios.bin");
 
 int main(int argc, char** argv) {
 	while(true){
@@ -131,11 +134,44 @@ void menu(){
 			break;
 		}
 		case 4:{
-			
+			int op2;
+			cout<<endl<<"------------- EQUIPO -------------"<<endl<<"1.Equipo Angeles"<<endl<<"2.Equipo Demonios"<<endl<<":";
+			cin>>op2;
+			switch(op2){
+				case 1:{
+					AA.Escribir(Angeles);
+					break;
+				}
+				case 2:{
+					DD.Escribir(Demonios);
+					break;
+				}
+			}
+			cout<<"Guardado..."<<endl;
 			break;
 		}
 		case 5:{
-			
+			int op2;
+			cout<<endl<<"------------- EQUIPO -------------"<<endl<<"1.Equipo Angeles"<<endl<<"2.Equipo Demonios"<<endl<<":";
+			cin>>op2;
+			switch(op2){
+				case 1:{
+					Angeles=AA.leer();
+					for(int i=0;i<Angeles.size();i++){
+						cout<<i<<"."<<Angeles[i]->getNombre()<<endl;
+					}
+					
+					break;
+				}
+				case 2:{
+					Demonios=DD.leer();
+					for(int i=0;i<Demonios.size();i++){
+						cout<<i<<"."<<Demonios[i]->getNombre()<<endl;
+					}
+					break;
+				}
+			}
+			cout<<"Cargado..."<<endl;
 			break;
 		}
 		case 6:{
