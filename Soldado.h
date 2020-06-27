@@ -14,13 +14,14 @@ class Soldado {
 		int getFuerza();
 		void setVida(int);
 		void setFuerza(int);
+		virtual int asalto(Soldado*)=0;
+		virtual int soporte(Soldado*,int)=0;
 		
 	protected:
 		string nombre;
 		int p_vida,p_fuerza;
 		
-		virtual int asalto(Soldado*)=0;
-		virtual int soporte(Soldado*,int)=0;
+		
 		
 		friend class Binarios;
 };

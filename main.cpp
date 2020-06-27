@@ -1,10 +1,13 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include<stdlib.h>
+#include<time.h>
 #include "Soldado.h"
 #include "Asalto.h"
 #include "Soporte.h"
 #include "Binarios.h"
+
 
 using namespace std; 
 using std::cin;
@@ -187,7 +190,34 @@ void menu(){
 }
 
 void Simulacion(){
-	
+while(Angeles.size()>0||Demonios.size()>0){
+int posi1=rand()%Angeles.size();
+int posi2=rand()%Demonios.size();
+int turno=rand()%2;
+if(turno==0){
+	int ataque=Angeles[posi1]->asalto(Demonios[posi2]);
+	Demonios[posi2]->soporte(Angeles[posi1],ataque);
+	cout<<"--------- ATACA EL ANGEL ---------"<<endl<<"valor del ataque: "<<ataque<<endl<<"Nombre del angel:"<<Angeles[posi1]->getNombre()<<endl<<"Vida del angel: "<<Angeles[posi1]->getVida()<<endl<<"Nombre del demonio: "<<Demonios[posi2]->getNombre()<<endl<<"Vida del demonio: "<<Demonios[posi1]->getVida()<<endl;
+	if(Demonios[posi2]->getVida()<=0){
+		Demonios.erase(Demonios.begin() + posi2);   
+		cout<<"El demonio murio..."<<endl;
+	}
+}else{
+	int ataque=Demonios[posi2]->asalto(Angeles[posi1]);
+	Angeles[posi1]->soporte(Demonios[posi2],ataque);
+	cout<<"-------- ATACA EL DEMONIO --------"<<endl<<"valor del ataque: "<<ataque<<endl<<"Nombre del angel:"<<Angeles[posi1]->getNombre()<<endl<<"Vida del angel: "<<Angeles[posi1]->getVida()<<endl<<"Nombre del demonio: "<<Demonios[posi2]->getNombre()<<endl<<"Vida del demonio: "<<Demonios[posi1]->getVida()<<endl;
+	if(Angeles[posi1]->getVida()<=0){
+		Angeles.erase(Angeles.begin() + posi1);   
+		cout<<"El angel murio..."<<endl;
+	}
+}
+}
+if(Angeles.size()>0){
+	cout<<"GANAN LOS ANGELES"<<endl;
+}else{
+	cout<<"GANAN LOS DEMONIOS"<<endl;	
+}
+
 }
 
 
